@@ -20,7 +20,7 @@ CÓMO INSTALAR
   3. El parche busca el juego automáticamente en este orden:
        - ruta guardada de una ejecución anterior (FyH_path.txt)
        - Steam (registro de Windows + bibliotecas de libraryfolders.vdf)
-       - rutas típicas: Program Files, unidades D:-G: (SteamLibrary, Games, Juegos),
+       - rutas típicas: Program Files, unidades D:-G: (SteamLibrary, Games,Juegos),
          Escritorio y Descargas
      Si no lo encuentra, se abre una ventana para elegir la carpeta:
        sirve la RAÍZ del juego o la subcarpeta www\.
