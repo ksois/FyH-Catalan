@@ -3,13 +3,14 @@
 ==========================================================
 
 QUÉ ES ESTO
-  Un parche que traduce al catalán tu instalación de Fear & Hunger 1.
-  NO hay que copiar nada a mano a la carpeta del juego: descomprime esta
-  carpeta donde quieras, haz doble clic en patch.bat y el solo la encuentra.
+  Un parche que traduce al català tu instalación de Fear & Hunger 1
+  (edición inglesa de Steam). NO hay que copiar nada a mano a la carpeta
+  del juego: descomprime esta carpeta donde quieras, haz doble clic en
+  patch.bat y el solo la encuentra.
 
 REQUISITOS
-  - Tener Fear & Hunger 1 ya instalado (versión con texto en español,
-    sobre la que se hizo esta traducción).
+  - Tener Fear & Hunger 1 ya instalado (edición inglesa de Steam;
+    es la versión sobre la que se ha construido y verificado el parche).
   - Windows (se usa solo PowerShell, que ya viene incluido).
   - No necesita internet ni instalar nada.
 
@@ -25,8 +26,8 @@ CÓMO INSTALAR
        sirve la RAÍZ del juego o la subcarpeta www\.
   4. El parche verifica por SHA256 que tu versión coincide con la esperada,
      crea backup_original_cat\ dentro de la carpeta del juego y aplica la
-     traducción (data\ + js\plugins.js). La ruta queda guardada en
-     FyH_path.txt para las siguientes veces.
+     traducción (data\ + fuentes). La ruta queda guardada en FyH_path.txt
+     para las siguientes veces.
 
 CÓMO DESINSTALAR
   - Doble clic en unpatch.bat: restaura los archivos originales desde
@@ -37,11 +38,14 @@ SEGURIDAD
   - Si la copia falla a medias, el juego se restaura automáticamente.
   - Si tu versión del juego no coincide con la esperada, se avisa y se
     pide confirmación antes de continuar (bajo tu responsabilidad).
-  - Solo se modifican data\ y js\plugins.js.
+  - Solo se modifican data\ y fonts\Eczar-Regular.ttf (fuente con los
+    glifos del català: ó, ü, ç, l·l...).
 
 PROBLEMAS FRECUENTES
-  - No encuentra el juego: bórralo de la unidad externa/conecta la unidad,
-    o borra FyH_path.txt y vuelve a ejecutar; usa el selector de carpetas.
+  - No encuentra el juego: usa el selector de carpetas; si antes funcionaba,
+    borra FyH_path.txt y vuelve a ejecutar.
   - Pide permisos de administrador: solo pasa si la carpeta del juego no es
     escribible con tu usuario (p. ej. en Program Files).
   - "El juego está parcheado": ejecutaste patch.bat dos veces; es normal.
+  - ¿Juego en inglés después de parchear? Comprueba que la carpeta elegida
+    es la correcta (debe contener data\System.json).

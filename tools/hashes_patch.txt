@@ -1,7 +1,6 @@
-# Hashes SHA256 de los archivos clave con el PARCHE (catalan) aplicado
-ecc6c9ce1c70fbd02ade4730bbc5db003cee0965e5655fd1cec6af314bc1258d  data\System.json
-9e078efa9a5399cde6092e13ed13084e772de1f5e6721556bce681dbfb068345  data\CommonEvents.json
-845a341f246e53b9c261ae230f6c755be292f98d9e4d772906cf999ab7eafd7c  data\Map001.json
-e9634dbef8e8a1bd315895cee145d777d334cdeee98a815edce9b79ea9be2568  data\Map011.json
-a14a7ecd634a7d6ea6229450eadd4a18c4317ecde3e7e18c1f98af8a67e18794  data\Map175.json
-d5a2721abace5de9eeeb2a6cff7dd316e43e2936620e6552c0b6749a2953c729  js\plugins.js
+# Hashes SHA256 de los archivos clave con el PARCHE (catalan sobre la base inglesa)
+a32bccc928271238fd72de67b6c9827ddbf82c4f5079f83b41dcc0932553ddc6  data\System.json
+7d0d30af28222ca4b6b06d24fea2617a1ae1983f2d56fa7b63f71c653434ce7d  data\CommonEvents.json
+68e99e27bf792c278e8ec9bcdda23305f4c089f20e05d2904ccd3a13708b03d5  data\Map001.json
+14ddde93fbc91691a6a7f9a746863617bcc556a8a0e3e6aa84de95f4f3c3acc7  data\Map011.json
+7516417da7379cbdce697afe98c5e00235ec304f0a513f0fd4e872353d4c53fe  data\Map175.json

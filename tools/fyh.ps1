@@ -19,7 +19,7 @@ $FilesDir  = Join-Path $PkgRoot 'files'
 $PathFile  = Join-Path $PkgRoot 'FyH_path.txt'
 $HashOrig  = Join-Path $ToolsDir 'hashes.txt'
 $HashPatch = Join-Path $ToolsDir 'hashes_patch.txt'
-$KeyFiles  = @('data\System.json', 'data\CommonEvents.json', 'js\plugins.js',
+$KeyFiles  = @('data\System.json', 'data\CommonEvents.json',
                'data\Map001.json', 'data\Map011.json', 'data\Map175.json')
 
 # ----------------------------- utilidades -----------------------------
@@ -174,9 +174,12 @@ function Find-GameRoot {
       $saved = (@($saved)[0])
       if ($saved) {
         $saved = TrimPS ([string]$saved)
-        if ($saved -and (Test-GameRoot $saved)) {
-          Say ('Usando ruta guardada: ' + $saved) ('Usant ruta guardada') 'DarkGray'
-          return $saved
+        if ($saved) {
+          $saved = Normalize-Root $saved          # acepta raiz o subcarpeta www
+          if ($saved -and (Test-GameRoot $saved)) {
+            Say ('Usando ruta guardada: ' + $saved) ('Usant ruta guardada') 'DarkGray'
+            return $saved
+          }
         }
       }
     } catch { }
@@ -289,6 +292,7 @@ function Backup-Game([string]$root) {
   Say 'Creando backup de los originales en backup_original_cat\ ...' 'Creant backup dels originals...' 'DarkGray'
   New-Item -ItemType Directory -Force -Path (Join-Path $bdir 'data') | Out-Null
   New-Item -ItemType Directory -Force -Path (Join-Path $bdir 'js')    | Out-Null
+  New-Item -ItemType Directory -Force -Path (Join-Path $bdir 'fonts') | Out-Null
   $pre = @{ }
   foreach ($rel in $KeyFiles) { $pre[$rel] = Get-Hash (Join-Path $root $rel) }
   & robocopy (Join-Path $root 'data') (Join-Path $bdir 'data') /E /NFL /NDL /NJH /NJS /R:2 /W:2 | Out-Null
@@ -296,7 +300,12 @@ function Backup-Game([string]$root) {
     Say ('[ERROR] Fallo el backup (robocopy code ' + $LASTEXITCODE + '). No se ha parcheado nada.') '[ERROR] Ha fallat el backup.' 'Red'
     return 1
   }
-  Copy-Item -LiteralPath (Join-Path $root 'js\plugins.js') -Destination (Join-Path $bdir 'js\plugins.js') -Force
+  if (Test-Path -LiteralPath (Join-Path $root 'js\plugins.js')) {
+    Copy-Item -LiteralPath (Join-Path $root 'js\plugins.js') -Destination (Join-Path $bdir 'js\plugins.js') -Force
+  }
+  if (Test-Path -LiteralPath (Join-Path $root 'fonts\Eczar-Regular.ttf')) {
+    Copy-Item -LiteralPath (Join-Path $root 'fonts\Eczar-Regular.ttf') -Destination (Join-Path $bdir 'fonts\Eczar-Regular.ttf') -Force
+  }
   foreach ($rel in $KeyFiles) {
     if ((Get-Hash (Join-Path $bdir $rel)) -ne $pre[$rel]) {
       Say ('[ERROR] Backup corrupto (' + $rel + '). Abortando sin parchear.') '[ERROR] Backup corromput.' 'Red'
@@ -313,7 +322,16 @@ function Copy-Payload([string]$root) {
     Say ('[ERROR] Fallo la copia (robocopy code ' + $LASTEXITCODE + ').') '[ERROR] Ha fallat la copia.' 'Red'
     return 1
   }
-  Copy-Item -LiteralPath (Join-Path $FilesDir 'js\plugins.js') -Destination (Join-Path $root 'js\plugins.js') -Force
+  if (Test-Path -LiteralPath (Join-Path $FilesDir 'js\plugins.js')) {
+    Copy-Item -LiteralPath (Join-Path $FilesDir 'js\plugins.js') -Destination (Join-Path $root 'js\plugins.js') -Force
+  }
+  if (Test-Path -LiteralPath (Join-Path $FilesDir 'fonts')) {
+    & robocopy (Join-Path $FilesDir 'fonts') (Join-Path $root 'fonts') /E /IS /IT /NFL /NDL /NJH /NJS /R:2 /W:2 | Out-Null
+    if ($LASTEXITCODE -ge 8) {
+      Say ('[ERROR] Fallo copiando las fuentes (robocopy code ' + $LASTEXITCODE + ').') '[ERROR] Ha fallat la copia de fonts.' 'Red'
+      return 1
+    }
+  }
   return 0
 }
 
@@ -325,7 +343,12 @@ function Restore-Backup([string]$root) {
     Say ('[ERROR] Fallo la restauracion (robocopy code ' + $LASTEXITCODE + ').') '[ERROR] Ha fallat la restauracio.' 'Red'
     return $false
   }
-  Copy-Item -LiteralPath (Join-Path $bdir 'js\plugins.js') -Destination (Join-Path $root 'js\plugins.js') -Force
+  if (Test-Path -LiteralPath (Join-Path $bdir 'js\plugins.js')) {
+    Copy-Item -LiteralPath (Join-Path $bdir 'js\plugins.js') -Destination (Join-Path $root 'js\plugins.js') -Force
+  }
+  if (Test-Path -LiteralPath (Join-Path $bdir 'fonts\Eczar-Regular.ttf')) {
+    Copy-Item -LiteralPath (Join-Path $bdir 'fonts\Eczar-Regular.ttf') -Destination (Join-Path $root 'fonts\Eczar-Regular.ttf') -Force
+  }
   return $true
 }
 

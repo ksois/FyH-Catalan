@@ -1,7 +1,6 @@
-# Hashes SHA256 de la version ORIGINAL (espanol) sobre la que se hizo la traduccion
-32efe2d105931f6e1c2216e083a85b82e000e5b99dee960784a392772a27d6fd  data\System.json
-4573f4ea28357476de9cdfece7668b31b9de02d5382a349fa1c98e17acbb446c  data\CommonEvents.json
-1f0aefe6e19fc74b3a97feb2c30754d1022ed44f7c58d067bf01f2343177e138  data\Map001.json
-9263717ae88ed70ecfe708f3b03c63f1b76141c0ee7d5803527e1f552f3f9704  data\Map011.json
-f27a616bcccc043406c1825e19539229a74262dfa80797a0e70c69de517fe852  data\Map175.json
-d5a2721abace5de9eeeb2a6cff7dd316e43e2936620e6552c0b6749a2953c729  js\plugins.js
+# Hashes SHA256 de la BASE ORIGINAL (edicion inglesa Steam) - para comprobar version
+1dc56b7b5316ef3b66c493560214be917414b4d14b1ad8ee74cb4fe0b054fd8a  data\System.json
+f5f77b66de2cc9e0b3bf0e4e31defc840ad9f0eadd2c5a7bb86966d69ffa2481  data\CommonEvents.json
+af0e335c882df6f97f4264f79fe619b68a4803aaa694e6a108190c7926afa717  data\Map001.json
+f719b4197fc768666bcf9f4772dd35d55bf5614d21cd67bf7e1b200cc9742c7b  data\Map011.json
+ef97acf703939c354113845667016a941c606fcb9d8f128edaab95187c4d7e6f  data\Map175.json
