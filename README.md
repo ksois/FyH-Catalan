@@ -1,4 +1,4 @@
-# Fear & Hunger 1 — Traducció al català 🇮🇱 *català* / Traducción al catalán
+# Fear & Hunger 1 — Traducció al català / Traducción al catalán
 
 Parche **autocontenido** que traduce al **català** *Fear & Hunger* (1) manteniendo intactos
 los códigos de control del motor, el tono oscuro del juego y sin tocar scripts, condiciones
