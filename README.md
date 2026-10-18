@@ -107,7 +107,7 @@ Node ni instalaciones) hace, en orden:
 
 - **[Miro Haverinen](https://mirohaver.itch.io/fear-and-hunger)** — creador de *Fear & Hunger* (2018).
   Compra el juego original; este parche no sustituye a ninguna compra.
-- **Traducción fan al español de Fear & Hunger** — la base de texto sobre la que se ha
+- **[Dean]** — la base de texto sobre la que se ha
   construido esta versión catalana: todo el contenido parte de su trabajo de traducción.
   <!-- TODO: sustituir por el nombre del equipo/enlace exacto del parche español, p. ej.:
        Equipo: ... · Web: ... -->
